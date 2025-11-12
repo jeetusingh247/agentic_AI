@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="920" viewBox="0 0 1400 920">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#333"/>
+    </marker>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <title>Agentic AI - Deployment Diagram (fixed)</title>
+
+  <!-- Title -->
+  <text x="700.0" y="34" text-anchor="middle" font-family="Verdana" font-size="20" font-weight="700">
+    Agentic AI - Deployment Diagram
+  </text>
+
+  <!-- Cloud Environment box -->
+  <rect x="36" y="56" width="1328" height="796" rx="10" fill="#f7faff" stroke="#2b2b2b" stroke-width="1.2"/>
+  <text x="68" y="88" font-family="Verdana" font-size="14" font-weight="600">Cloud Environment (GCP or AWS)</text>
+
+  <!-- Frontend CDN -->
+  <rect x="76" y="112" width="360" height="110" rx="8" fill="#ffffff" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="96" y="142" font-family="Verdana" font-size="13" font-weight="600">Frontend (React TypeScript)</text>
+  <text x="96" y="162" font-family="Verdana" font-size="12">Hosted on CDN or Static Hosting</text>
+
+  <!-- API Service -->
+  <rect x="480" y="112" width="360" height="140" rx="8" fill="#ffffff" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="500" y="142" font-family="Verdana" font-size="13" font-weight="600">FastAPI Backend Service</text>
+  <text x="500" y="162" font-family="Verdana" font-size="12">Cloud Run or Fargate containers</text>
+  <text x="500" y="182" font-family="Verdana" font-size="12">Autoscaled replicas, HTTPS</text>
+
+  <!-- Worker System -->
+  <rect x="880" y="112" width="360" height="140" rx="8" fill="#ffffff" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="900" y="142" font-family="Verdana" font-size="13" font-weight="600">Worker System (Celery or RQ)</text>
+  <text x="900" y="162" font-family="Verdana" font-size="12">Containerized workers, task consumers</text>
+  <text x="900" y="182" font-family="Verdana" font-size="12">Scale independently</text>
+
+  <!-- Data Layer -->
+  <rect x="76" y="280" width="1224" height="260" rx="8" fill="#ffffff" stroke="#2b2b2b"/>
+  <text x="96" y="312" font-family="Verdana" font-size="14" font-weight="600">Data and Storage (Managed)</text>
+
+  <rect x="116" y="340" width="260" height="160" rx="6" fill="#f9fbff" stroke="#2b2b2b"/>
+  <text x="136" y="374" font-family="Verdana" font-size="12" font-weight="600">PostgreSQL (Cloud SQL or RDS)</text>
+  <text x="136" y="394" font-family="Verdana" font-size="11">Users, agents, tasks, logs</text>
+
+  <rect x="412" y="340" width="220" height="160" rx="6" fill="#f9fbff" stroke="#2b2b2b"/>
+  <text x="432" y="374" font-family="Verdana" font-size="12" font-weight="600">Redis (Cache and Queue)</text>
+  <text x="432" y="394" font-family="Verdana" font-size="11">Task queues, cache, rate limits</text>
+
+  <rect x="664" y="340" width="220" height="160" rx="6" fill="#f9fbff" stroke="#2b2b2b"/>
+  <text x="684" y="374" font-family="Verdana" font-size="12" font-weight="600">Vector DB (Pinecone/Weaviate)</text>
+  <text x="684" y="394" font-family="Verdana" font-size="11">Embeddings and semantic index</text>
+
+  <rect x="916" y="340" width="260" height="160" rx="6" fill="#f9fbff" stroke="#2b2b2b"/>
+  <text x="936" y="374" font-family="Verdana" font-size="12" font-weight="600">Object Storage (S3 or GCS)</text>
+  <text x="936" y="394" font-family="Verdana" font-size="11">Raw files and artifacts</text>
+
+  <!-- Observability and Security -->
+  <rect x="76" y="616" width="380" height="110" rx="8" fill="#f7fff7" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="96" y="648" font-family="Verdana" font-size="12" font-weight="600">Observability Stack</text>
+  <text x="96" y="668" font-family="Verdana" font-size="11">Prometheus, Grafana, Sentry</text>
+
+  <rect x="496" y="616" width="380" height="110" rx="8" fill="#fff7f0" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="516" y="648" font-family="Verdana" font-size="12" font-weight="600">Security and Secrets</text>
+  <text x="516" y="668" font-family="Verdana" font-size="11">Vault or KMS, IAM</text>
+
+  <rect x="916" y="616" width="380" height="110" rx="8" fill="#f7fbff" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="936" y="648" font-family="Verdana" font-size="12" font-weight="600">CI and CD</text>
+  <text x="936" y="668" font-family="Verdana" font-size="11">GitHub Actions and Registry</text>
+
+  <!-- Connections -->
+  <line x1="256" y1="222" x2="480" y2="182" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="360" y="208" font-family="Verdana" font-size="11" text-anchor="middle">HTTPS requests</text>
+
+  <line x1="660" y1="252" x2="880" y2="252" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="770" y="240" font-family="Verdana" font-size="11" text-anchor="middle">Task triggers</text>
+
+  <line x1="560" y1="270" x2="560" y2="340" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="600" y="300" font-family="Verdana" font-size="11">DB queries</text>
+
+  <line x1="760" y1="270" x2="760" y2="340" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="800" y="300" font-family="Verdana" font-size="11">Vector operations</text>
+
+  <line x1="980" y1="270" x2="980" y2="340" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1020" y="300" font-family="Verdana" font-size="11">Storage operations</text>
+
+  <!-- External LLM Providers -->
+  <rect x="1180" y="380" width="180" height="80" rx="6" fill="#fff2f0" stroke="#b33"/>
+  <text x="1198" y="420" font-family="Verdana" font-size="11" font-weight="600">LLM Providers</text>
+  <text x="1198" y="438" font-family="Verdana" font-size="11">OpenAI, Anthropic</text>
+  <line x1="1040" y1="340" x2="1180" y2="420" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1110" y="380" font-family="Verdana" font-size="11" text-anchor="middle">Outbound model calls</text>
+
+  <!-- Legend -->
+  <rect x="36" y="836" width="1328" height="60" rx="8" fill="#ffffff" stroke="#cccccc"/>
+  <text x="56" y="860" font-family="Verdana" font-size="12">Legend: Managed compute, managed databases, observability, security, and CI/CD are shown. Arrows indicate network interactions.</text>
+
+</svg>
