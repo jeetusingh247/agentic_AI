@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#2b2b2b"/>
+    </marker>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="700.0" y="36" text-anchor="middle" font-family="Verdana" font-size="20" font-weight="700">Agentic AI — Component Diagram</text>
+
+  <!-- Public Zone -->
+  <rect x="40" y="60" width="1320" height="120" rx="8" fill="#f3f7ff" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="70" y="90" font-family="Verdana" font-size="14" font-weight="600">Public Zone (Internet)</text>
+  <rect x="80" y="110" width="320" height="60" rx="6" fill="#ffffff" stroke="#2b2b2b"/>
+  <text x="95" y="140" font-family="Verdana" font-size="13">Frontend (React + TypeScript)</text>
+  <rect x="420" y="110" width="320" height="60" rx="6" fill="#ffffff" stroke="#2b2b2b"/>
+  <text x="435" y="140" font-family="Verdana" font-size="13">API Gateway / Load Balancer</text>
+  <rect x="760" y="110" width="360" height="60" rx="6" fill="#fff7f0" stroke="#2b2b2b"/>
+  <text x="775" y="140" font-family="Verdana" font-size="13">Auth Service (JWT / OAuth / RBAC)</text>
+
+  <!-- Private Zone -->
+  <rect x="40" y="200" width="1320" height="420" rx="8" fill="#fdfdfd" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="70" y="230" font-family="Verdana" font-size="14" font-weight="600">Private Zone (Application)</text>
+
+  <!-- Backend, Workers, Adapter -->
+  <rect x="80" y="260" width="360" height="120" rx="8" fill="#ffffff" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="100" y="290" font-family="Verdana" font-size="13" font-weight="600">FastAPI Backend</text>
+  <text x="100" y="310" font-family="Verdana" font-size="12">Auth, API routes, orchestration, webhooks</text>
+
+  <rect x="520" y="260" width="360" height="120" rx="8" fill="#ffffff" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="540" y="290" font-family="Verdana" font-size="13" font-weight="600">Worker Pool / Orchestrator</text>
+  <text x="540" y="310" font-family="Verdana" font-size="12">Task queue consumption, tools, task state</text>
+
+  <rect x="960" y="260" width="320" height="120" rx="8" fill="#fff7f0" stroke="#2b2b2b" filter="url(#shadow)"/>
+  <text x="980" y="290" font-family="Verdana" font-size="13" font-weight="600">LLM Adapter</text>
+  <text x="980" y="310" font-family="Verdana" font-size="12">Provider connectors, retries, streaming</text>
+
+  <!-- Tools / Sandboxes -->
+  <rect x="80" y="400" width="360" height="80" rx="6" fill="#f7fff7" stroke="#2b2b2b"/>
+  <text x="100" y="435" font-family="Verdana" font-size="12">Tool Adapters / Sandboxes (web, code exec, DB access)</text>
+
+  <!-- Storage / Datastores -->
+  <rect x="80" y="500" width="1200" height="140" rx="8" fill="#fbfbff" stroke="#2b2b2b" />
+  <text x="100" y="530" font-family="Verdana" font-size="14" font-weight="600">Stateful Services (Managed)</text>
+
+  <rect x="120" y="560" width="240" height="80" rx="6" fill="#ffffff" stroke="#2b2b2b"/>
+  <text x="140" y="600" font-family="Verdana" font-size="12">PostgreSQL</text>
+  <text x="140" y="618" font-family="Verdana" font-size="11" fill="#444">(users, agents, tasks, logs)</text>
+
+  <rect x="420" y="560" width="240" height="80" rx="6" fill="#ffffff" stroke="#2b2b2b"/>
+  <text x="440" y="600" font-family="Verdana" font-size="12">Redis</text>
+  <text x="440" y="618" font-family="Verdana" font-size="11" fill="#444">(queue, cache, rate-limits)</text>
+
+  <rect x="720" y="560" width="240" height="80" rx="6" fill="#ffffff" stroke="#2b2b2b"/>
+  <text x="740" y="600" font-family="Verdana" font-size="12">Vector DB</text>
+  <text x="740" y="618" font-family="Verdana" font-size="11" fill="#444">(embeddings, semantic index)</text>
+
+  <rect x="1020" y="560" width="240" height="80" rx="6" fill="#ffffff" stroke="#2b2b2b"/>
+  <text x="1040" y="600" font-family="Verdana" font-size="12">Blob Storage</text>
+  <text x="1040" y="618" font-family="Verdana" font-size="11" fill="#444">(raw files, artifacts)</text>
+
+  <!-- Observability & Infra tools -->
+  <rect x="80" y="720" width="360" height="60" rx="6" fill="#fff8f7" stroke="#2b2b2b"/>
+  <text x="100" y="755" font-family="Verdana" font-size="12">Prometheus / Grafana / Sentry / OpenTelemetry</text>
+
+  <rect x="520" y="720" width="360" height="60" rx="6" fill="#fffdf6" stroke="#2b2b2b"/>
+  <text x="540" y="755" font-family="Verdana" font-size="12">KMS / Vault / Secrets</text>
+
+  <rect x="960" y="720" width="260" height="60" rx="6" fill="#f7fff7" stroke="#2b2b2b"/>
+  <text x="980" y="755" font-family="Verdana" font-size="12">CI / CD (GitHub Actions)</text>
+
+  <!-- Arrows & Connections -->
+  <!-- Frontend -> API Gateway -->
+  <line x1="260" y1="170" x2="420" y2="140" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="330" y="160" font-family="Verdana" font-size="12" text-anchor="middle">HTTPS / WebSocket</text>
+
+  <!-- API Gateway -> FastAPI Backend -->
+  <line x1="560" y1="170" x2="560" y2="260" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="590" y="220" font-family="Verdana" font-size="12">mTLS / HTTPS</text>
+
+  <!-- Auth Service interactions -->
+  <line x1="840" y1="170" x2="920" y2="170" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="880" y="160" font-family="Verdana" font-size="12" text-anchor="middle">Token validation</text>
+  <line x1="900" y1="200" x2="900" y2="260" stroke="#2b2b2b" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="920" y="230" font-family="Verdana" font-size="11">Auth checks</text>
+
+  <!-- Backend -> Worker -->
+  <line x1="440" y1="320" x2="520" y2="320" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="480" y="310" font-family="Verdana" font-size="12" text-anchor="middle">enqueue (Redis)</text>
+
+  <!-- Worker -> VectorDB -->
+  <line x1="680" y1="320" x2="720" y2="320" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="700" y="310" font-family="Verdana" font-size="12" text-anchor="middle">query KNN</text>
+
+  <!-- Worker -> LLM Adapter -->
+  <line x1="760" y1="320" x2="960" y2="320" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="860" y="300" font-family="Verdana" font-size="12" text-anchor="middle">generate() (stream)</text>
+
+  <!-- LLM Adapter -> Provider (note: external) -->
+  <line x1="1130" y1="320" x2="1200" y2="320" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1165" y="300" font-family="Verdana" font-size="11" text-anchor="middle">OpenAI / Anthropic (external)</text>
+
+  <!-- Backend -> Postgres -->
+  <line x1="240" y1="380" x2="240" y2="560" stroke="#2b2b2b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="260" y="470" font-family="Verdana" font-size="12" text-anchor="middle">SQL (TLS)</text>
+
+  <!-- Parser / Blob Upload -->
+  <line x1="200" y1="320" x2="200" y2="560" stroke="#2b2b2b" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="240" y="430" font-family="Verdana" font-size="11">PUT raw files</text>
+
+  <!-- Redis link -->
+  <line x1="540" y1="420" x2="540" y2="560" stroke="#2b2b2b" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="560" y="490" font-family="Verdana" font-size="11">queue / cache</text>
+
+  <!-- Vector DB link -->
+  <line x1="840" y1="420" x2="840" y2="560" stroke="#2b2b2b" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="880" y="490" font-family="Verdana" font-size="11">upsert / retrieve vectors</text>
+
+  <!-- Observability links -->
+  <line x1="260" y1="320" x2="260" y2="740" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="300" y="530" font-family="Verdana" font-size="11">metrics / traces / errors</text>
+
+  <!-- Legend -->
+  <rect x="20" y="820" width="1360" height="60" rx="6" fill="#ffffff" stroke="#e6e6e6"/>
+  <text x="40" y="845" font-family="Verdana" font-size="12">Legend: Blue box = public zone, pale box = private services, white boxes = services, arrows labeled with protocol / intent. External providers shown right.</text>
+
+</svg>
