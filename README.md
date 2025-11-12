@@ -19,6 +19,14 @@ This repository tracks the full, expanded implementation plan for the agentic AI
 
 2. Phase 1 — Architecture & tech-stack design
 	 - Design the system at a high level and choose the technology stack.
+		 - Chosen stack for Phase 1 (current):
+			 - Frontend: React + TypeScript (recommended UI library: e.g., MUI or Tailwind UI)
+			 - Backend: Python + FastAPI
+			 - Database: PostgreSQL
+			 - Local dev / infra: Docker Compose (Postgres, Redis)
+			 - Orchestration / Deployment (Phase 1): Managed container services (e.g., Google Cloud Run or AWS Fargate).
+				 - Rationale: reduces operational overhead, supports autoscale-to-zero, integrates well with managed Postgres/Redis, and speeds up delivery for an MVP.
+				 - Note: plan for a future migration to Kubernetes (GKE/EKS/AKS) if advanced control or large-scale optimization is required.
 	 - Subtasks:
 		 - Select backend language/framework (e.g., Python/FastAPI or Node/Express/Nest) and justify tradeoffs.
 		 - Choose frontend framework (React + TypeScript suggested) and UI library.
